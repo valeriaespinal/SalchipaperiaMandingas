@@ -1,7 +1,7 @@
 {
   "name": "mandingassalchipaperia",
   "version": "1.0.0",
-  "description": "Juego de tipo "clicker" para el curso de Aplicaciones Móviles",
+  "description": "Juego de tipo clicker para el curso de Aplicaciones Móviles",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean & parcel build ./src/index.html --public-url ./",
