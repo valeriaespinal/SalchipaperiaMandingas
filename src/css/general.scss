@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Josefin+Sans:wght@400;700&display=swap');
+
+// paleta de colores
+$color-teal: #177E89;
+$color-poppy: #DB3A34;
+$color-sunglow: #FFD23F;
+$color-honeydew: #F3FCF0;
+$color-black-olive: #1F271B;
+
+// tipografias
+$font-header: 'Lilita One', cursive;
+$font-body: 'Josefin Sans', sans-serif;
+
+// variables globales de estilo (esto lo podemos modificar despuse)
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 20px;
+
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+.container {
+    max-width: 420px; 
+    margin: 0 auto;  
+  }
+  
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: $color-black-olive;
+  background-color: $color-honeydew;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
