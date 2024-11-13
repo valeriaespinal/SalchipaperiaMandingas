@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mandingas Salchipaperia</title>
   <link rel="stylesheet" href="css/main.scss">
 </head>
 <body>
-  <div class="container">  
-  <section id="splash" class="view hidden">
+  <section id="splash" class="ocultar">
     <h1>Bienvenidos a Mandingas Salchipaperia</h1>
-    <button onclick="goToView('registro')">Empezar</button>
+    <button id="btn_empezar">Empezar</button>
   </section>
 
-  <section id="registro" class="view hidden">
+  <section id="registro" class="ocultar">
 
   </section>
-  <section id="tutorial" class="view hidden">
+  <section id="tutorial" class="ocultar">
 
   </section>
 
-  <section id="juego" class="view">
+  <section id="juego">
     <nav class="navbar">
-      <img src="img/salchipapas.png" alt="App Icon" class="nav-icon">
-      <img src="img/options-icon.png" alt="Options Icon" class="nav-icon" onclick="goToView('configuracion')">
-      <img src="img/help-icon.png" alt="Help Icon" class="nav-icon" onclick="goToView('tutorial')">
+      <img src="img/salchipapas.png" alt="App Icon" class="nav-icon" id="btn_home">
+      <img src="img/options-icon.png" alt="Options Icon" class="nav-icon" id="btn_configuracion">
+      <img src="img/help-icon.png" alt="Help Icon" class="nav-icon" id="btn_tutorial">
     </nav>
   
     <div class="content">
       <h1 class="restaurant-name" id="restaurant-name">Mandingas Salchipaperia</h1>
       <p class="status-message" id="status-message">Aún nadie quiere probar tus salchipapas</p>
-  
+      
       <h2 class="salchipapas-count" id="salchipapas-count">0 salchipapas</h2>
       <p class="salchipapas-per-second" id="salchipapas-per-second">0 salchipapas por segundo</p>
   
       <img src="img/salchipapas.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
-  
+      <audio id="cruchaudio" src="./sounds/cruch-sound.wav" preload="auto"></audio>
+
       <p class="total-salchipapas" id="total-salchipapas">0 salchipapas vendidas a lo largo de la historia</p>
   
       <h3 class="upgrades-title">Mejoras</h3>
       <div class="upgrades" id="upgrades-container">No tienes ninguna mejora aún</div>
   
-      <p class="shop-link" onclick="goToView('tienda')">Conseguir más ➜</p>
-  
-      <button class="scoreboard-button" onclick="goToView('puntuacion')">Tablero de puntajes</button>
+      <p class="shop-link" id="btn_tienda">Conseguir más ➜</p>
+      <button class="scoreboard-button" id="btn_puntuacion">Tablero de puntajes</button>
     </div>
-
-    <p class="credits-link" onclick="goToView('creditos')">Sobre la app</p>
+    <p class="credits-link" id="btn_creditos">Sobre la app</p>
   </section>
   
 
-  <section id="tienda" class="view hidden">
+  <section id="tienda" class="ocultar">
 
   </section>
 
-  <section id="puntuacion" class="view hidden">
+  <section id="puntuacion" class="ocultar">
 
   </section>
 
-  <section id="configuracion" class="view hidden">
+  <section id="configuracion" class="ocultar">
 
   </section>
 
-  <section id="creditos" class="view hidden">
+  <section id="creditos" class="ocultar">
 
   </section>
 
   <script src="js/main.js"></script>
-</div>
 </body>
 </html>

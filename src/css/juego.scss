@@ -1,12 +1,18 @@
 #juego {
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    
     .navbar {
       background-color: $color-sunglow;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: $spacing-small;
+      padding: 1vh;
+      
       .nav-icon {
-        height: 30px;
+        height: 3.2vh;
         cursor: pointer;
       }
     }
@@ -15,56 +21,68 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: $spacing-medium;
+      justify-content: flex-start;  
+      height: 90vh;
       text-align: center;
       
       .restaurant-name {
         font-family: $font-body;
         color: $color-poppy;
         font-weight: bold;
-        font-size: $font-size-large;
+        font-size: 7.2vw;
+        margin: 1rem 0;
       }
   
       .status-message {
         color: $color-black-olive;
-        font-size: $font-size-small;
+        font-size: 4vw;
+        margin: 0 0;
       }
   
       .salchipapas-count {
         color: $color-poppy;
         font-family: $font-header;
-        font-size: 2em;
+        font-size: 10vw;
+        margin-top: 5vw;
+        margin-bottom: 0;
       }
   
       .salchipapas-per-second {
         color: $color-poppy;
         font-family: $font-body;
+        font-size: 5.2vw;
+        margin-top: 0;
+        margin-bottom: 0;
       }
   
       .salchipapas-img {
-        width: calc(100% - 40px);
-        max-width: 300px;
-        margin: $spacing-medium 0;
+        width: 85vw;
+        margin: 2vw 0;
         cursor: pointer;
       }
   
       .total-salchipapas {
-        font-size: $font-size-small;
+        font-size: 4vw;
+        margin-top: 0;
+        margin-bottom: 0;
         color: $color-black-olive;
       }
   
       .upgrades-title {
         color: $color-poppy;
         font-weight: bold;
-        font-size: $font-size-small;
+        font-size: 6vw;
+        margin-top: 2vh;
+        margin-bottom: 0;
       }
   
       .upgrades {
         display: flex;
-        gap: $spacing-small;
-        font-size: $font-size-small;
+        gap: 5px;
+        font-size: 4vw;
         color: $color-black-olive;
-        margin: $spacing-small 0;
+        margin-top: 1vh;
+        margin-bottom: 1.1vh;
       }
   
       .shop-link {
@@ -72,7 +90,9 @@
         font-weight: bold;
         text-decoration: underline;
         cursor: pointer;
-        margin: $spacing-small 0;
+        margin-top: 0;
+        margin-bottom: 1.4vh;
+        font-size: 6vw;
       }
   
       .scoreboard-button {
@@ -80,20 +100,24 @@
         color: white;
         background: linear-gradient(to bottom, #FFD23F, #DB3A34);
         border: none;
-        padding: $spacing-small $spacing-medium;
+        padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
-        margin-top: $spacing-medium;
+        font-size: 5vw;
+        margin-top: 10px;
+        margin-bottom: 5vh;
       }
     }
   
     .credits-link {
       position: absolute;
-      bottom: $spacing-small;
-      right: $spacing-small;
-      font-size: $font-size-small;
+      bottom: 3vw;
+      right: 3vw;
+      font-size: 5vw;
       color: $color-poppy;
       cursor: pointer;
+      margin-top: 2vw;
+      margin-bottom: 2vw;
     }
   }
   

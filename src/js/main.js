@@ -1,14 +1,56 @@
-function goToView(viewId) {
-    const views = document.querySelectorAll('.view');
-    views.forEach(view => view.classList.add('hidden'));
-    document.getElementById(viewId).classList.remove('hidden');
-  }
+let refs = {};
+let btns = {};
+
+window.onload = init;
+
+function init() {
+    refs["splash"] = document.getElementById("splash");
+    refs["registro"] = document.getElementById("registro");
+    refs["tutorial"] = document.getElementById("tutorial");
+    refs["juego"] = document.getElementById("juego");
+    refs["tienda"] = document.getElementById("tienda");
+    refs["puntuacion"] = document.getElementById("puntuacion");
+    refs["configuracion"] = document.getElementById("configuracion");
+    refs["creditos"] = document.getElementById("creditos");
+
+    btns["btn_empezar"] = document.getElementById("btn_empezar");
+    btns["btn_home"] = document.getElementById("btn_home");
+    btns["btn_configuracion"] = document.getElementById("btn_configuracion");
+    btns["btn_tutorial"] = document.getElementById("btn_tutorial");
+    btns["btn_tienda"] = document.getElementById("btn_tienda");
+    btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
+    btns["btn_creditos"] = document.getElementById("btn_creditos");
+
+    asignarEventosMenu();
+}
+
+function asignarEventosMenu() {
+    btns["btn_empezar"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_home"].addEventListener("click", () => cargarSeccion("home"));
+    btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
+    btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
+    btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
+    btns["btn_creditos"].addEventListener("click", () => cargarSeccion("creditos"));
+}
+
+function ocultar() {
+    for (let key in refs) {
+        refs[key].classList.add("ocultar");
+    }
+}
+
+function cargarSeccion(seccion) {
+    ocultar();
+    refs[seccion].classList.remove("ocultar");
+    refs[seccion].classList.add("animate__animated", "animate__fadeIn");
+}
+
 
 let totalSalchipapas = 0;
 let currentSalchipapas = 0;
 let salchipapasPerSecond = 0;
 
-// Función para actualizar el mensaje de estado
 function updateStatusMessage() {
   const statusMessage = document.getElementById("status-message");
   if (totalSalchipapas === 0) statusMessage.textContent = "Aún nadie quiere probar tus salchipapas";
@@ -21,7 +63,6 @@ function updateStatusMessage() {
   else statusMessage.textContent = "Tus salchipapas tienen más poder que los líderes mundiales";
 }
 
-// Función para generar salchipapas
 function generateSalchipapas() {
   currentSalchipapas++;
   totalSalchipapas++;
@@ -29,7 +70,6 @@ function generateSalchipapas() {
   playCrunchSound();
 }
 
-// Función para actualizar el UI
 function updateUI() {
   document.getElementById("salchipapas-count").textContent = `${currentSalchipapas} salchipapas`;
   document.getElementById("salchipapas-per-second").textContent = `${salchipapasPerSecond} salchipapas por segundo`;
@@ -37,13 +77,11 @@ function updateUI() {
   updateStatusMessage();
 }
 
-// Función para el sonido de crujido
 function playCrunchSound() {
-  const crunchSound = new Audio("sounds/crunch-sound.mp3");
-  crunchSound.play();
+  const audio = document.getElementById('cruchaudio');
+  audio.play();
 }
 
-// Incrementar salchipapas automáticamente por segundo
 setInterval(() => {
   currentSalchipapas += salchipapasPerSecond;
   totalSalchipapas += salchipapasPerSecond;
