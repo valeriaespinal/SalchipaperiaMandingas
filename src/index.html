@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="css/main.scss">
 </head>
 <body>
+  <audio id="background-music" autoplay loop>
+    <source src="sounds/background-music.wav" type="audio/wav">
+  </audio>
+  
   <section id="splash" class="ocultar">
     <h1>Bienvenidos a Mandingas Salchipaperia</h1>
     <button id="btn_empezar">Empezar</button>
@@ -22,7 +26,7 @@
 
   <section id="juego">
     <nav class="navbar">
-      <img src="img/salchipapas.png" alt="App Icon" class="nav-icon" id="btn_home">
+      <img src="img/logo.png" alt="App Icon" class="nav-icon" id="btn_home">
       <img src="img/options-icon.png" alt="Options Icon" class="nav-icon" id="btn_configuracion">
       <img src="img/help-icon.png" alt="Help Icon" class="nav-icon" id="btn_tutorial">
     </nav>
@@ -34,7 +38,7 @@
       <h2 class="salchipapas-count" id="salchipapas-count">0 salchipapas</h2>
       <p class="salchipapas-per-second" id="salchipapas-per-second">0 salchipapas por segundo</p>
   
-      <img src="img/salchipapas.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
+      <img id="salchipapas-img" src="img/0.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
       <audio id="cruchaudio" src="./sounds/cruch-sound.wav" preload="auto"></audio>
 
       <p class="total-salchipapas" id="total-salchipapas">0 salchipapas vendidas a lo largo de la historia</p>
