@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">  
-  <section id="splash" class="view">
+  <section id="splash" class="view hidden">
     <h1>Bienvenidos a Mandingas Salchipaperia</h1>
     <button onclick="goToView('registro')">Empezar</button>
   </section>
@@ -20,9 +20,35 @@
 
   </section>
 
-  <section id="juego" class="view hidden">
+  <section id="juego" class="view">
+    <nav class="navbar">
+      <img src="img/salchipapas.png" alt="App Icon" class="nav-icon">
+      <img src="img/options-icon.png" alt="Options Icon" class="nav-icon" onclick="goToView('configuracion')">
+      <img src="img/help-icon.png" alt="Help Icon" class="nav-icon" onclick="goToView('tutorial')">
+    </nav>
+  
+    <div class="content">
+      <h1 class="restaurant-name" id="restaurant-name">Mandingas Salchipaperia</h1>
+      <p class="status-message" id="status-message">Aún nadie quiere probar tus salchipapas</p>
+  
+      <h2 class="salchipapas-count" id="salchipapas-count">0 salchipapas</h2>
+      <p class="salchipapas-per-second" id="salchipapas-per-second">0 salchipapas por segundo</p>
+  
+      <img src="img/salchipapas.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
+  
+      <p class="total-salchipapas" id="total-salchipapas">0 salchipapas vendidas a lo largo de la historia</p>
+  
+      <h3 class="upgrades-title">Mejoras</h3>
+      <div class="upgrades" id="upgrades-container">No tienes ninguna mejora aún</div>
+  
+      <p class="shop-link" onclick="goToView('tienda')">Conseguir más ➜</p>
+  
+      <button class="scoreboard-button" onclick="goToView('puntuacion')">Tablero de puntajes</button>
+    </div>
 
+    <p class="credits-link" onclick="goToView('creditos')">Sobre la app</p>
   </section>
+  
 
   <section id="tienda" class="view hidden">
 

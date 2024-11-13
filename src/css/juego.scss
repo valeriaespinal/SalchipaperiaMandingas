@@ -1,0 +1,99 @@
+#juego {
+    .navbar {
+      background-color: $color-sunglow;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $spacing-small;
+      .nav-icon {
+        height: 30px;
+        cursor: pointer;
+      }
+    }
+  
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: $spacing-medium;
+      text-align: center;
+      
+      .restaurant-name {
+        font-family: $font-body;
+        color: $color-poppy;
+        font-weight: bold;
+        font-size: $font-size-large;
+      }
+  
+      .status-message {
+        color: $color-black-olive;
+        font-size: $font-size-small;
+      }
+  
+      .salchipapas-count {
+        color: $color-poppy;
+        font-family: $font-header;
+        font-size: 2em;
+      }
+  
+      .salchipapas-per-second {
+        color: $color-poppy;
+        font-family: $font-body;
+      }
+  
+      .salchipapas-img {
+        width: calc(100% - 40px);
+        max-width: 300px;
+        margin: $spacing-medium 0;
+        cursor: pointer;
+      }
+  
+      .total-salchipapas {
+        font-size: $font-size-small;
+        color: $color-black-olive;
+      }
+  
+      .upgrades-title {
+        color: $color-poppy;
+        font-weight: bold;
+        font-size: $font-size-small;
+      }
+  
+      .upgrades {
+        display: flex;
+        gap: $spacing-small;
+        font-size: $font-size-small;
+        color: $color-black-olive;
+        margin: $spacing-small 0;
+      }
+  
+      .shop-link {
+        color: $color-poppy;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+        margin: $spacing-small 0;
+      }
+  
+      .scoreboard-button {
+        font-family: $font-header;
+        color: white;
+        background: linear-gradient(to bottom, #FFD23F, #DB3A34);
+        border: none;
+        padding: $spacing-small $spacing-medium;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: $spacing-medium;
+      }
+    }
+  
+    .credits-link {
+      position: absolute;
+      bottom: $spacing-small;
+      right: $spacing-small;
+      font-size: $font-size-small;
+      color: $color-poppy;
+      cursor: pointer;
+    }
+  }
+  
