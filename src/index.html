@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mandingas Salchipaperia</title>
+  <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/vendor/animate.min.css">
   <link rel="stylesheet" href="css/main.scss">
 </head>
 <body>
@@ -12,9 +13,9 @@
     <source src="sounds/background-music.wav" type="audio/wav">
   </audio>
   
-  <section id="splash" class="ocultar">
+  <section id="splash">
     <h1>Bienvenidos a Mandingas Salchipaperia</h1>
-    <button id="btn_empezar">Empezar</button>
+    <button id="btn_juego">Empezar</button>
   </section>
 
   <section id="registro" class="ocultar">
@@ -24,9 +25,9 @@
 
   </section>
 
-  <section id="juego">
+  <section id="juego" class="ocultar">
     <nav class="navbar">
-      <img src="img/logo.png" alt="App Icon" class="nav-icon" id="btn_home">
+      <img src="img/logo.png" alt="App Icon" class="nav-icon" id="btn_juego">
       <img src="img/options-icon.png" alt="Options Icon" class="nav-icon" id="btn_configuracion">
       <img src="img/help-icon.png" alt="Help Icon" class="nav-icon" id="btn_tutorial">
     </nav>
@@ -69,6 +70,6 @@
 
   </section>
 
-  <script src="js/main.js"></script>
+  
 </body>
 </html>

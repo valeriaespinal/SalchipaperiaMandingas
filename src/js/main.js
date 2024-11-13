@@ -13,20 +13,23 @@ function init() {
     refs["configuracion"] = document.getElementById("configuracion");
     refs["creditos"] = document.getElementById("creditos");
 
-    btns["btn_empezar"] = document.getElementById("btn_empezar");
-    btns["btn_home"] = document.getElementById("btn_home");
+    btns["btn_juego"] = document.getElementById("btn_juego");
+    btns["btn_registro"] = document.getElementById("btn_registro");
     btns["btn_configuracion"] = document.getElementById("btn_configuracion");
     btns["btn_tutorial"] = document.getElementById("btn_tutorial");
     btns["btn_tienda"] = document.getElementById("btn_tienda");
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
+    setTimeout(() => {
+      cargarSeccion("juego");
+    }, 3000);
 
     asignarEventosMenu();
 }
 
 function asignarEventosMenu() {
-    btns["btn_empezar"].addEventListener("click", () => cargarSeccion("juego"));
-    btns["btn_home"].addEventListener("click", () => cargarSeccion("home"));
+    btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_registro"].addEventListener("click", () => cargarSeccion("registro"));
     btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
@@ -40,10 +43,16 @@ function ocultar() {
     }
 }
 
+function cambiarSeccion(e) {
+  const targetId = e.currentTarget.id;  
+  const seccion = targetId.split("_")[1]; 
+  cargarSeccion(seccion);
+}
+
 function cargarSeccion(seccion) {
-    ocultar();
-    refs[seccion].classList.remove("ocultar");
-    refs[seccion].classList.add("animate__animated", "animate__fadeIn");
+  ocultar();
+  refs[seccion].classList.remove("ocultar");
+  refs[seccion].classList.add("animate__animated", "animate__fadeIn");
 }
 
 

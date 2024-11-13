@@ -20,11 +20,7 @@ $font-size-large: 26px;
 $spacing-small: 8px;
 $spacing-medium: 16px;
 $spacing-large: 24px;
-.container {
-    max-width: 420px; 
-    margin: 0 auto;  
-  }
-  
+
 body {
   font-family: $font-body;
   font-size: $font-size-base;
@@ -32,10 +28,18 @@ body {
   background-color: $color-honeydew;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+section{
+  width:100vh;
+  height:100vh;
+  text-align:center;
+  margin:0 auto;
 }
 
+
 .ocultar {
-  visibility: hidden;
   display: none;
 }

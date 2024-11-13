@@ -1,14 +1,14 @@
 // splash.scss
 
 #splash {
-    display: flex;
-    flex-direction: column;
+    
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    max-width: 100vh;
     background-color: var(--color-honeydew);
     text-align: center;
-  
+    position: relative;
+    overflow: hidden;
     h1 {
       font-family: $font-header;
       font-size: calc(var(--font-size-large) * 1.5);
