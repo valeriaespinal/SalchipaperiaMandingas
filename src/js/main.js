@@ -1,5 +1,5 @@
-let refs = {};
-let btns = {};
+let refs = [];
+let btns = [];
 
 window.onload = init;
 
@@ -21,7 +21,7 @@ function init() {
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
     setTimeout(() => {
-      cargarSeccion("creditos");
+      cargarSeccion("juego");
     }, 3000);
 
     asignarEventosMenu();
@@ -29,11 +29,11 @@ function init() {
 
 function asignarEventosMenu() {
     btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
-    btns["btn_registro"].addEventListener("click", () => cargarSeccion("registro"));
-    btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
-    btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
-    btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
-    btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
+    // btns["btn_registro"].addEventListener("click", () => cargarSeccion("registro"));
+    // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
+    // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
+    // btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
+    // btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
     btns["btn_creditos"].addEventListener("click", () => cargarSeccion("creditos"));
 }
 
