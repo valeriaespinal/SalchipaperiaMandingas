@@ -5,24 +5,44 @@ let refs = [];
 let btns = [];
 let nombre_salch = localStorage.getItem("nombre_salch") || '';
 let totalSalchipapas = parseInt(localStorage.getItem("totalSalchipapas")) || 0;
-let currentSalchipapas = 0;
-let salchipapasPerSecond = 0;
+let currentSalchipapas;
+let salchipapasPerSecond;
+
+function cargarMejoras(){
+  cant_granja_de_papas = parseInt(localStorage.getItem("papas")) || 0;
+  cant_fabrica_de_salchichas = parseInt(localStorage.getItem("salchichas")) || 0;
+  cant_criadero_de_codornices = parseInt(localStorage.getItem("huevos")) || 0;
+  cant_casa_de_cerdos = parseInt(localStorage.getItem("tocineta")) || 0;
+  cant_lecheria = parseInt(localStorage.getItem("lecheria")) || 0;
+  cant_cultivo_de_maiz_genetico = parseInt(localStorage.getItem("maiz")) || 0;
+  cant_fabrica_de_emulsion_de_scott = parseInt(localStorage.getItem("emulsion")) || 0;
+  cant_maquinas_de_helados_de_chicle = parseInt(localStorage.getItem("chicle")) || 0;
+  cant_plantacion_de_tomates = parseInt(localStorage.getItem("tomates")) || 0;
+  cant_planta_nuclear_de_uranio_235u = parseInt(localStorage.getItem("uranio")) || 0;
+  cant_fabrica_de_tarro_carmesi = parseInt(localStorage.getItem("tarro")) || 0;
+  cant_laboratorio_de_natilla = parseInt(localStorage.getItem("natilla")) || 0;
+  cant_fabrica_de_tejidos_extraños = parseInt(localStorage.getItem("tejidos_extraños")) || 0;
+  cant_mirella_dimensional = parseInt(localStorage.getItem("mirella")) || 0;
+
+  
+}
+
 
 //cantidad de mejoras
-let cant_granja_de_papas = 0;
-let cant_fabrica_de_salchichas = 0;
-let cant_criadero_de_codornices = 0;
-let cant_casa_de_cerdos = 0;
-let cant_lecheria = 0;
-let cant_cultivo_de_maiz_genetico = 0;
-let cant_fabrica_de_emulsion_de_scott = 0;
-let cant_maquinas_de_helados_de_chicle = 0;
-let cant_plantacion_de_tomates = 0;
-let cant_planta_nuclear_de_uranio_235u = 0;
-let cant_fabrica_de_tarro_carmesi = 0;
-let cant_laboratorio_de_natilla = 0;
-let cant_fabrica_de_tejidos_extraños = 0;
-let cant_mirella_dimensional = 0;
+let cant_granja_de_papas;
+let cant_fabrica_de_salchichas;
+let cant_criadero_de_codornices;
+let cant_casa_de_cerdos;
+let cant_lecheria;
+let cant_cultivo_de_maiz_genetico;
+let cant_fabrica_de_emulsion_de_scott;
+let cant_maquinas_de_helados_de_chicle;
+let cant_plantacion_de_tomates;
+let cant_planta_nuclear_de_uranio_235u;
+let cant_fabrica_de_tarro_carmesi;
+let cant_laboratorio_de_natilla;
+let cant_fabrica_de_tejidos_extraños;
+let cant_mirella_dimensional;
 
 //costo de mejoras
 let cst_granja_de_papas = 10;
@@ -106,7 +126,8 @@ function init() {
     }, 2000);
 
     asignarEventosMenu();
-    verificarDesbloqueos()
+    verificarDesbloqueos();
+    cargarMejoras();
 }
 
 function asignarEventosMenu() {
@@ -158,6 +179,7 @@ function cargarSeccion(seccion) {
 
   if (seccion == "puntuacion"){
     getTopSalchipaperias();
+    saveSalchipaperiaData(nombre_salch, totalSalchipapas);
   }
 }
 
@@ -377,6 +399,7 @@ function comprarGranjaPapas(){
     cst_granja_de_papas += 0.5;
     document.getElementById("granjaPapasCosto").innerText = cst_granja_de_papas;
     updateProduccionPorSegundo();
+    guardarMejora("papas", cant_granja_de_papas);
     updateUI();
   }
 }
@@ -388,6 +411,7 @@ function comprarFabricaSalchichas(){
     cst_fabrica_de_salchichas += 1;
     document.getElementById("fabricaSalchichasCosto").innerText = cst_fabrica_de_salchichas;
     updateProduccionPorSegundo();
+    guardarMejora("salchichas", cant_fabrica_de_salchichas);
     updateUI();
   }
 }
@@ -399,6 +423,7 @@ function comprarCriaderoCodornices(){
     cst_criadero_de_codornices += 1.5;
     document.getElementById("criaderoCodornicesCosto").innerText = cst_criadero_de_codornices;
     updateProduccionPorSegundo();
+    guardarMejora("huevos", cant_criadero_de_codornices);
     updateUI();
   }
 }
@@ -410,6 +435,7 @@ function comprarCasaCerdos(){
     cst_casa_de_cerdos += 2;
     document.getElementById("casaCerdosCosto").innerText = cst_casa_de_cerdos;
     updateProduccionPorSegundo();
+    guardarMejora("tocineta", cant_casa_de_cerdos);
     updateUI();
   }
 }
@@ -421,6 +447,7 @@ function comprarLecheria(){
     cst_lecheria += 2;
     document.getElementById("lecheriaCosto").innerText = cst_lecheria;
     updateProduccionPorSegundo();
+    guardarMejora("lecheria", cant_lecheria);
     updateUI();
   }
 }
@@ -432,6 +459,7 @@ function comprarCultivoMaiz(){
     cst_cultivo_de_maiz_genetico += 2.5;
     document.getElementById("cultivoMaizCosto").innerText = cst_cultivo_de_maiz_genetico;
     updateProduccionPorSegundo();
+    guardarMejora("maiz", cant_cultivo_de_maiz_genetico);
     updateUI();
   }
 }
@@ -443,6 +471,7 @@ function comprarFabricaEmulsion(){
     cst_fabrica_de_emulsion_de_scott += 3;
     document.getElementById("fabricaEmulsionCosto").innerText = cst_fabrica_de_emulsion_de_scott;
     updateProduccionPorSegundo();
+    guardarMejora("emulsion", cant_fabrica_de_emulsion_de_scott);
     updateUI();
   }
 }
@@ -454,6 +483,7 @@ function comprarMaquinaHelados(){
     cst_maquinas_de_helados_de_chicle += 3.5;
     document.getElementById("maquinaHeladosCosto").innerText = cst_maquinas_de_helados_de_chicle;
     updateProduccionPorSegundo();
+    guardarMejora("chicle", cant_maquinas_de_helados_de_chicle);
     updateUI();
   }
 }
@@ -465,6 +495,7 @@ function comprarPlantacionTomates(){
     cst_plantacion_de_tomates += 4;
     document.getElementById("plantacionTomatesCosto").innerText = cst_plantacion_de_tomates;
     updateProduccionPorSegundo();
+    guardarMejora("tomates", cant_plantacion_de_tomates);
     updateUI();
   }
 }
@@ -476,6 +507,7 @@ function comprarPlantaNuclear(){
     cst_planta_nuclear_de_uranio_235u += 4.5;
     document.getElementById("plantaNuclearCosto").innerText = cst_planta_nuclear_de_uranio_235u;
     updateProduccionPorSegundo();
+    guardarMejora("uranio", cant_planta_nuclear_de_uranio_235u);
     updateUI();
   }
 }
@@ -487,6 +519,7 @@ function comprarFabricaTarro(){
     cst_fabrica_de_tarro_carmesi += 5;
     document.getElementById("fabricaTarroCosto").innerText = cst_fabrica_de_tarro_carmesi;
     updateProduccionPorSegundo();
+    guardarMejora("tarro", cant_fabrica_de_tarro_carmesi);
     updateUI();
   }
 }
@@ -498,6 +531,7 @@ function comprarLaboratorioNatilla(){
     cst_laboratorio_de_natilla += 5.5;
     document.getElementById("laboratorioNatillaCosto").innerText = cst_laboratorio_de_natilla;
     updateProduccionPorSegundo();
+    guardarMejora("natilla", cant_laboratorio_de_natilla);
     updateUI();
   }
 }
@@ -509,6 +543,7 @@ function comprarFabricaTejidos(){
     cst_fabrica_de_tejidos_extraños += 5.5;
     document.getElementById("FabricaTejidosCosto").innerText = cst_fabrica_de_tejidos_extraños;
     updateProduccionPorSegundo();
+    guardarMejora("tejidos_extraños", cant_fabrica_de_tejidos_extraños);
     updateUI();
   }
 }
@@ -520,7 +555,11 @@ function comprarMirella(){
     cst_mirella_dimensional += 5.5;
     document.getElementById("mirellaCosto").innerText = cst_mirella_dimensional;
     updateProduccionPorSegundo();
+    guardarMejora("mirella", cant_mirella_dimensional);
     updateUI();
   }
 }
 
+function guardarMejora(nombre, cantidad) {
+  localStorage.setItem(nombre, cantidad);
+}
