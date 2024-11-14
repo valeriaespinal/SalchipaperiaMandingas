@@ -1,9 +1,17 @@
+import { db } from './firebase.js';
+import { doc, addDoc, collection, getDoc, setDoc, updateDoc } from "firebase/firestore";
+
 let refs = [];
 let btns = [];
+let nombre_salch = localStorage.getItem("nombre_salch") || '';
+let totalSalchipapas = parseInt(localStorage.getItem("totalSalchipapas")) || 0;
+let currentSalchipapas = 0;
+let salchipapasPerSecond = 0;
 
 window.onload = init;
 
 function init() {
+
     refs["splash"] = document.getElementById("splash");
     refs["registro"] = document.getElementById("registro");
     refs["tutorial"] = document.getElementById("tutorial");
@@ -24,8 +32,12 @@ function init() {
     btns["btn_continuar"] = document.getElementById("btn_continuar");
     
     setTimeout(() => {
-      cargarSeccion("registro");
-    }, 3000);
+      if (nombre_salch) {
+        cargarSeccion("juego");
+      } else {
+        cargarSeccion("registro");
+      }
+    }, 2000);
 
     asignarEventosMenu();
 }
@@ -33,7 +45,7 @@ function init() {
 function asignarEventosMenu() {
     btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver"].addEventListener("click", () => cargarSeccion("juego"));
-    btns["btn_continuar"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_continuar"].addEventListener("click", validarNombre);
     // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
@@ -58,11 +70,6 @@ function cargarSeccion(seccion) {
   refs[seccion].classList.remove("ocultar");
   refs[seccion].classList.add("animate__animated", "animate__fadeIn");
 }
-
-
-let totalSalchipapas = 0;
-let currentSalchipapas = 0;
-let salchipapasPerSecond = 0;
 
 //cantidad de mejoras
 let cant_granja_de_papas = 0;
@@ -124,11 +131,14 @@ function updateStatusMessage() {
   else statusMessage.textContent = "Tus salchipapas tienen más poder que los líderes mundiales";
 }
 
-function generateSalchipapas() {
+window.generateSalchipapas = function() {
   currentSalchipapas++;
   totalSalchipapas++;
   updateUI();
   playCrunchSound();
+  saveGameData();
+
+  saveSalchipaperiaData(nombre_salch, totalSalchipapas);
 }
 
 function updateUI() {
@@ -148,3 +158,49 @@ setInterval(() => {
   totalSalchipapas += salchipapasPerSecond;
   updateUI();
 }, 1000);
+
+function validarNombre(){
+  const nombreInput = document.getElementById('nombre_salchipaperia').value;
+  if (nombreInput) {
+    nombre_salch = nombreInput;
+    localStorage.setItem("nombre_salch", nombre_salch);
+    cargarSeccion("juego");
+  } else {
+    window.alert("Ingresa un nombre válido");
+  }
+}
+
+function saveGameData() {
+  localStorage.setItem("totalSalchipapas", totalSalchipapas.toString());
+}
+
+async function saveSalchipaperiaData(nombre, cantidadTotal) {
+  // Verificar si el nombre está vacío
+  if (!nombre.trim()) {
+    console.error("El nombre no puede estar vacío.");
+    alert("Por favor, ingresa un nombre válido para la salchipapería.");
+    return;
+  }
+
+  const salchipaperiaRef = doc(db, "salchipaperias", nombre);
+
+  try {
+    // Intentamos obtener el documento para verificar si ya existe
+    const docSnap = await getDoc(salchipaperiaRef);
+
+    if (docSnap.exists()) {
+      await updateDoc(salchipaperiaRef, {
+        cant: cantidadTotal
+      });
+      console.log("Documento actualizado correctamente");
+    } else {
+      await setDoc(salchipaperiaRef, {
+        nombre: nombre,
+        cant: cantidadTotal
+      });
+      console.log("Documento creado correctamente");
+    }
+  } catch (error) {
+    console.error("Error al guardar los datos en Firebase:", error);
+  }
+}
