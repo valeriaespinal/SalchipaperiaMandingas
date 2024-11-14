@@ -37,7 +37,7 @@ function asignarEventosMenu() {
     // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
-    // btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
+    btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
     btns["btn_creditos"].addEventListener("click", () => cargarSeccion("creditos"));
 }
 

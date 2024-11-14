@@ -1,0 +1,25 @@
+#puntuacion{
+
+    .navbar {
+        background-color: $color-sunglow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vh;
+        
+        .nav-icon {
+          height: 3.2vh;
+          cursor: pointer;
+        }
+      }
+
+    #txt_tablap{
+        font-family: $font-secondary;
+        font-size: 30px;
+        font-weight: 700;
+        color: $color-poppy;
+        text-align: center;
+        margin: 20px 0 20px 0;
+    }
+
+}
