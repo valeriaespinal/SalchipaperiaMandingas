@@ -1,0 +1,29 @@
+#splash {
+  position: absolute;
+  width: 100%;
+  height: 100vh;  // Hace que el contenedor ocupe el 100% de la altura de la pantalla
+  overflow: hidden; // Evita que la imagen se salga del contenedor
+  //display: flex;
+  flex-direction: column; // Asegura que los elementos estén apilados verticalmente
+  justify-content: center; // Centra los elementos verticalmente
+  align-items: center; // Centra los elementos horizontalmente
+  text-align: center; // Alinea el texto al centro
+}
+
+#splash img {
+  max-width: 100%;
+  max-height: 60vh;  // Limita la altura de la imagen
+  object-fit: contain; // Mantiene la proporción de la imagen
+  width: auto;
+  height: auto;
+  margin-bottom: 20px; // Da espacio entre la imagen y el texto
+}
+
+#restaurant-name {
+  font-family: $font-header;
+  color: $color-poppy;
+  font-weight: bold;
+  font-size: 10vw;
+  margin: 1rem 0;
+}
+
