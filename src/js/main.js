@@ -1,5 +1,5 @@
 import { db } from './firebase.js';
-import { doc, addDoc, collection, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, addDoc, collection, getDoc, setDoc, updateDoc, query, orderBy, limit, getDocs } from "firebase/firestore";
 
 let refs = [];
 let btns = [];
@@ -155,6 +155,10 @@ function cargarSeccion(seccion) {
   ocultar();
   refs[seccion].classList.remove("ocultar");
   refs[seccion].classList.add("animate__animated", "animate__fadeIn");
+
+  if (seccion == "puntuacion"){
+    getTopSalchipaperias();
+  }
 }
 
 
@@ -245,6 +249,59 @@ async function saveSalchipaperiaData(nombre, cantidadTotal) {
   } catch (error) {
     console.error("Error al guardar los datos en Firebase:", error);
   }
+}
+
+async function getTopSalchipaperias() {
+  try {
+    const salchipaperiasRef = collection(db, "salchipaperias");
+    const topSalchipaperiasQuery = query(salchipaperiasRef, orderBy("cant", "desc"), limit(10));
+    const querySnapshot = await getDocs(topSalchipaperiasQuery);
+    
+    const salchipaperias = [];
+    querySnapshot.forEach((doc) => {
+      salchipaperias.push({
+        nombre: doc.data().nombre,
+        cant: doc.data().cant
+      });
+    });
+    
+    renderTable(salchipaperias);
+  } catch (error) {
+    console.error("Error al obtener las top salchipaperías:", error);
+  }
+}
+
+// Función para renderizar la tabla en el HTML
+function renderTable(salchipaperias) {
+  const tableContainer = document.getElementById("top-salchipaperias-table");
+  let tableHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Posición</th>
+          <th>Nombre</th>
+          <th>Cantidad de Salchipapas</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  salchipaperias.forEach((salchipaperia, index) => {
+    tableHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${salchipaperia.nombre}</td>
+        <td>${salchipaperia.cant}</td>
+      </tr>
+    `;
+  });
+
+  tableHTML += `
+      </tbody>
+    </table>
+  `;
+
+  tableContainer.innerHTML = tableHTML;
 }
 
 function verificarDesbloqueos(){
@@ -466,3 +523,4 @@ function comprarMirella(){
     updateUI();
   }
 }
+
