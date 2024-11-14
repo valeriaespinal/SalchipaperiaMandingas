@@ -21,8 +21,10 @@ function init() {
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
     btns["btn_volver"] = document.getElementById("btn_volver");
+    btns["btn_continuar"] = document.getElementById("btn_continuar");
+    
     setTimeout(() => {
-      cargarSeccion("juego");
+      cargarSeccion("registro");
     }, 3000);
 
     asignarEventosMenu();
@@ -31,7 +33,7 @@ function init() {
 function asignarEventosMenu() {
     btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver"].addEventListener("click", () => cargarSeccion("juego"));
-    // btns["btn_registro"].addEventListener("click", () => cargarSeccion("registro"));
+    btns["btn_continuar"].addEventListener("click", () => cargarSeccion("juego"));
     // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
