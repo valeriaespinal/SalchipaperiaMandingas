@@ -4,7 +4,7 @@
   "description": "Juego de tipo clicker para el curso de Aplicaciones Móviles",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean & parcel build ./src/index.html --public-url ./",
+    "build": "npm run clean & npm install firebase & parcel build ./src/index.html --public-url ./",
     "start": "parcel ./src/index.html",
     "rm": "rimraf node_modules & rimraf .parcel-cache & rimraf src",
     "move": "mv dist/* .",
@@ -35,7 +35,7 @@
     "@capacitor/core": "^6.1.2",
     "animate.css": "^4.1.1",
     "dotenv": "^16.4.5",
-    "firebase": "^10.7.2",
+    "firebase": "^10.14.1",
     "mandingassalchipaperia": "file:",
     "rimraf": "^6.0.1"
   }

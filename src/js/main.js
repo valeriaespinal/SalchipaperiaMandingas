@@ -8,6 +8,54 @@ let totalSalchipapas = parseInt(localStorage.getItem("totalSalchipapas")) || 0;
 let currentSalchipapas = 0;
 let salchipapasPerSecond = 0;
 
+//cantidad de mejoras
+let cant_granja_de_papas = 0;
+let cant_fabrica_de_salchichas = 0;
+let cant_criadero_de_codornices = 0;
+let cant_casa_de_cerdos = 0;
+let cant_lecheria = 0;
+let cant_cultivo_de_maiz_genetico = 0;
+let cant_fabrica_de_emulsion_de_scott = 0;
+let cant_maquinas_de_helados_de_chicle = 0;
+let cant_plantacion_de_tomates = 0;
+let cant_planta_nuclear_de_uranio_235u = 0;
+let cant_fabrica_de_tarro_carmesi = 0;
+let cant_laboratorio_de_natilla = 0;
+let cant_fabrica_de_tejidos_extraños = 0;
+let cant_mirella_dimensional = 0;
+
+//costo de mejoras
+let cst_granja_de_papas = 10;
+let cst_fabrica_de_salchichas = 76;
+let cst_criadero_de_codornices = 152;
+let cst_casa_de_cerdos = 228;
+let cst_lecheria = 304;
+let cst_cultivo_de_maiz_genetico = 380;
+let cst_fabrica_de_emulsion_de_scott = 456;
+let cst_maquinas_de_helados_de_chicle = 532;
+let cst_plantacion_de_tomates = 608;
+let cst_planta_nuclear_de_uranio_235u = 684;
+let cst_fabrica_de_tarro_carmesi = 760;
+let cst_laboratorio_de_natilla = 836;
+let cst_fabrica_de_tejidos_extraños = 912;
+let cst_mirella_dimensional = 1000;
+
+//producción de mejoras
+let prod_granja_de_papas = 0.5;
+let prod_fabrica_de_salchichas = 1;
+let prod_criadero_de_codornices = 1.5;
+let prod_casa_de_cerdos = 2;
+let prod_lecheria = 2.5;
+let prod_cultivo_de_maiz_genetico = 3;
+let prod_fabrica_de_emulsion_de_scott = 3.5;
+let prod_maquinas_de_helados_de_chicle = 4;
+let prod_plantacion_de_tomates = 4.5;
+let prod_planta_nuclear_de_uranio_235u = 5;
+let prod_fabrica_de_tarro_carmesi = 5.5;
+let prod_laboratorio_de_natilla = 6;
+let prod_fabrica_de_tejidos_extraños = 6.5;
+let prod_mirella_dimensional = 7;
+
 window.onload = init;
 
 function init() {
@@ -29,7 +77,10 @@ function init() {
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
     btns["btn_volver"] = document.getElementById("btn_volver");
+    btns["btn_volver2"] = document.getElementById("btn_volver2");
+    btns["btn_volver3"] = document.getElementById("btn_volver3");
     btns["btn_continuar"] = document.getElementById("btn_continuar");
+    btns["granjaPapasBtn"] = document.getElementById("granjaPapasBtn");
     
     setTimeout(() => {
       if (nombre_salch) {
@@ -40,17 +91,22 @@ function init() {
     }, 2000);
 
     asignarEventosMenu();
+    verificarDesbloqueos()
 }
 
 function asignarEventosMenu() {
-    btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
+    //btns["btn_juego"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_volver2"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_volver3"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_continuar"].addEventListener("click", validarNombre);
     // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
     btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
     btns["btn_creditos"].addEventListener("click", () => cargarSeccion("creditos"));
+
+    btns["granjaPapasBtn"].addEventListener("click", () => comprarGranjaPapas());
 }
 
 function ocultar() {
@@ -71,53 +127,6 @@ function cargarSeccion(seccion) {
   refs[seccion].classList.add("animate__animated", "animate__fadeIn");
 }
 
-//cantidad de mejoras
-let cant_granja_de_papas = 0;
-let cant_fabrica_de_salchichas = 0;
-let cant_criadero_de_codornices = 0;
-let cant_casa_de_cerdos = 0;
-let cant_lecheria = 0;
-let cant_cultivo_de_maiz_genetico = 0;
-let cant_fabrica_de_emulsion_de_scott = 0;
-let cant_maquinas_de_helados_de_chicle = 0;
-let cant_plantacion_de_tomates = 0;
-let cant_planta_nuclear_de_ranio_235u = 0;
-let cant_fabrica_de_tarro_carmesi = 0;
-let cant_laboratorio_de_natilla = 0;
-let cant_fabrica_de_tejidos_extraños = 0;
-let cant_mirella_dimensional = 0;
-
-//costo de mejoras
-let cst_granja_de_papas = 10;
-let cst_fabrica_de_salchichas = 76;
-let cst_criadero_de_codornices = 152;
-let cst_casa_de_cerdos = 228;
-let cst_lecheria = 304;
-let cst_cultivo_de_maiz_genetico = 380;
-let cst_fabrica_de_emulsion_de_scott = 456;
-let cst_maquinas_de_helados_de_chicle = 532;
-let cst_plantacion_de_tomates = 608;
-let cst_planta_nuclear_de_ranio_235u = 684;
-let cst_fabrica_de_tarro_carmesi = 760;
-let cst_laboratorio_de_natilla = 836;
-let cst_fabrica_de_tejidos_extraños = 912;
-let cst_mirella_dimensional = 1000;
-
-//producción de mejoras
-let prod_granja_de_papas = 0.5;
-let prod_fabrica_de_salchichas = 1;
-let prod_criadero_de_codornices = 1.5;
-let prod_casa_de_cerdos = 2;
-let prod_lecheria = 2.5;
-let prod_cultivo_de_maiz_genetico = 3;
-let prod_fabrica_de_emulsion_de_scott = 3.5;
-let prod_maquinas_de_helados_de_chicle = 4;
-let prod_plantacion_de_tomates = 4.5;
-let prod_planta_nuclear_de_ranio_235u = 5;
-let prod_fabrica_de_tarro_carmesi = 5.5;
-let prod_laboratorio_de_natilla = 6;
-let prod_fabrica_de_tejidos_extraños = 6.5;
-let prod_mirella_dimensional = 7;
 
 function updateStatusMessage() {
   const statusMessage = document.getElementById("status-message");
@@ -137,6 +146,7 @@ window.generateSalchipapas = function() {
   updateUI();
   playCrunchSound();
   saveGameData();
+  verificarDesbloqueos();
 
   saveSalchipaperiaData(nombre_salch, totalSalchipapas);
 }
@@ -146,6 +156,7 @@ function updateUI() {
   document.getElementById("salchipapas-per-second").textContent = `${salchipapasPerSecond} salchipapas por segundo`;
   document.getElementById("total-salchipapas").textContent = `${totalSalchipapas} salchipapas vendidas a lo largo de la historia`;
   updateStatusMessage();
+  verificarDesbloqueos();
 }
 
 function playCrunchSound() {
@@ -157,6 +168,7 @@ setInterval(() => {
   currentSalchipapas += salchipapasPerSecond;
   totalSalchipapas += salchipapasPerSecond;
   updateUI();
+  verificarDesbloqueos()
 }, 1000);
 
 function validarNombre(){
@@ -202,5 +214,44 @@ async function saveSalchipaperiaData(nombre, cantidadTotal) {
     }
   } catch (error) {
     console.error("Error al guardar los datos en Firebase:", error);
+  }
+}
+
+function verificarDesbloqueos(){
+  if(totalSalchipapas >= 10){
+    document.getElementById("granjaPapasBtn").disabled = false;
+  }
+}
+
+
+function updateProduccionPorSegundo(){
+  salchipapasPerSecond = 
+  (cant_granja_de_papas * prod_granja_de_papas) + 
+  (cant_fabrica_de_salchichas * prod_fabrica_de_salchichas) + 
+  (cant_criadero_de_codornices * prod_criadero_de_codornices) +
+  (cant_casa_de_cerdos * prod_casa_de_cerdos) + 
+  (cant_lecheria * prod_lecheria) +
+  (cant_cultivo_de_maiz_genetico * prod_cultivo_de_maiz_genetico) +
+  (cant_fabrica_de_emulsion_de_scott * prod_fabrica_de_emulsion_de_scott) +
+  (cant_maquinas_de_helados_de_chicle * prod_maquinas_de_helados_de_chicle) +
+  (cant_plantacion_de_tomates * prod_plantacion_de_tomates) + 
+  (cant_planta_nuclear_de_uranio_235u * prod_planta_nuclear_de_uranio_235u) + 
+  (cant_fabrica_de_tarro_carmesi * prod_fabrica_de_tarro_carmesi) + 
+  (cant_laboratorio_de_natilla * prod_laboratorio_de_natilla) +
+  (cant_fabrica_de_tejidos_extraños * prod_fabrica_de_tejidos_extraños) +
+  (cant_mirella_dimensional * prod_mirella_dimensional);
+  updateUI();
+}
+
+//Funciones de compra de mejoras
+function comprarGranjaPapas(){
+  if(currentSalchipapas >= cst_granja_de_papas){
+    currentSalchipapas -= cst_granja_de_papas;
+    cant_granja_de_papas++;
+    cst_granja_de_papas += 0.5;
+    document.getElementById("granjaPapasCosto").innerText = cst_granja_de_papas;
+    console.log("compró una granja de papas");
+    updateProduccionPorSegundo();
+    updateUI();
   }
 }
