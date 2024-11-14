@@ -1,0 +1,40 @@
+#creditos{
+    margin: 0%;
+}
+
+#titulo{
+    font-family: $font-header;
+    color: $color-poppy;
+}
+
+#creditos .navbar{
+    background-color: $color-sunglow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vh;
+        
+        .nav-icon {
+          height: 3.2vh;
+          cursor: pointer;
+        }
+}
+#creditos b{
+    margin: 7%;
+}
+
+#creditos h{
+    margin: 7%;
+}
+
+#natalia{
+    color: $color-teal;
+}
+
+#valeria{
+    color: $color-poppy;
+}
+
+#jeronimo{
+    color: #a58622;
+}

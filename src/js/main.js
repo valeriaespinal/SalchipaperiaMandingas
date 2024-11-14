@@ -21,7 +21,7 @@ function init() {
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
     setTimeout(() => {
-      cargarSeccion("juego");
+      cargarSeccion("creditos");
     }, 3000);
 
     asignarEventosMenu();
