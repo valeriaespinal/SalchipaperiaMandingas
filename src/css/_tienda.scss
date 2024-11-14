@@ -1,0 +1,20 @@
+#tienda{
+
+}
+#tienda h1{
+    font-family: $font-header;
+    color: $color-poppy;
+}
+
+#tienda .navbar{
+    background-color: $color-sunglow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vh;
+        
+        .nav-icon {
+          height: 3.2vh;
+          cursor: pointer;
+        }
+}
