@@ -92,13 +92,21 @@ function init() {
     btns["btn_juego"] = document.getElementById("btn_juego");
     btns["btn_registro"] = document.getElementById("btn_registro");
     btns["btn_configuracion"] = document.getElementById("btn_configuracion");
+
     btns["btn_tutorial"] = document.getElementById("btn_tutorial");
+    btns["btn_tutorial2"] = document.getElementById("btn_tutorial2");
+    btns["btn_tutorial3"] = document.getElementById("btn_tutorial3");
+    btns["btn_tutorial4"] = document.getElementById("btn_tutorial4");
+    btns["btn_tutorial5"] = document.getElementById("btn_tutorial5");
+    btns["btn_tutorial6"] = document.getElementById("btn_tutorial6");
+
     btns["btn_tienda"] = document.getElementById("btn_tienda");
     btns["btn_puntuacion"] = document.getElementById("btn_puntuacion");
     btns["btn_creditos"] = document.getElementById("btn_creditos");
     btns["btn_volver"] = document.getElementById("btn_volver");
     btns["btn_volver2"] = document.getElementById("btn_volver2");
     btns["btn_volver3"] = document.getElementById("btn_volver3");
+    btns["btn_volver4"] = document.getElementById("btn_volver4");
     btns["btn_continuar"] = document.getElementById("btn_continuar");
 
     //botones de las mejoras
@@ -136,9 +144,16 @@ function asignarEventosMenu() {
     btns["btn_volver"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver2"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver3"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_volver4"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_continuar"].addEventListener("click", validarNombre);
     // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
-    // btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tutorial2"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tutorial3"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tutorial4"].addEventListener("click", () => cargarSeccion("tutorial"));
+    btns["btn_tutorial5"].addEventListener("click", () => cargarSeccion("tutorial"));
+    //btns["btn_tutorial6"].addEventListener("click", () => cargarSeccion("tutorial"));
+
     btns["btn_tienda"].addEventListener("click", () => cargarSeccion("tienda"));
     btns["btn_puntuacion"].addEventListener("click", () => cargarSeccion("puntuacion"));
     btns["btn_creditos"].addEventListener("click", () => cargarSeccion("creditos"));
