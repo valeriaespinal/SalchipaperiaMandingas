@@ -141,7 +141,6 @@ function init() {
         cargarSeccion("registro");
       }
     }, 2000);
-    updateImage();
     asignarEventosMenu();
     verificarDesbloqueos();
     cargarMejoras();
@@ -239,40 +238,42 @@ window.generateSalchipapas = function() {
   saveSalchipaperiaData(nombre_salch, totalSalchipapas);
 }
 
+
 function updateImage() {
+  
   const salchipapasImg = document.getElementById("salchipapas-img");
   
   // Cambiar la imagen según el total de salchipapas
   if (totalSalchipapas === 0) {
-    salchipapasImg.src = "img/0.png";
-  } else if (totalSalchipapas === 1) {
-    salchipapasImg.src = "img/1.png";
+    salchipapasImg.src = 'https://i.imgur.com/8mZhUbq.png';
+  } else if (totalSalchipapas >= 1 && totalSalchipapas < 100) {
+    salchipapasImg.src = 'https://i.imgur.com/QqhRG7P.png';
   } else if (totalSalchipapas >= 100 && totalSalchipapas < 500) {
-    salchipapasImg.src = "img/2.png";
+    salchipapasImg.src = 'https://i.imgur.com/CJsxrHK.png';
   } else if (totalSalchipapas >= 500 && totalSalchipapas < 1000) {
-    salchipapasImg.src = "img/3.png";
+    salchipapasImg.src = "https://i.imgur.com/eUQ97WU.png";
   } else if (totalSalchipapas >= 1000 && totalSalchipapas < 5000) {
-    salchipapasImg.src = "img/4.png";
+    salchipapasImg.src = "https://i.imgur.com/fYWnzw0.png";
   } else if (totalSalchipapas >= 5000 && totalSalchipapas < 10000) {
-    salchipapasImg.src = "img/5.png";
+    salchipapasImg.src = "https://i.imgur.com/6QaOjfj.png";
   } else if (totalSalchipapas >= 10000 && totalSalchipapas < 50000) {
-    salchipapasImg.src = "img/6.png";
+    salchipapasImg.src = "https://i.imgur.com/ZbtTIR1.png";
   } else if (totalSalchipapas >= 50000 && totalSalchipapas < 100000) {
-    salchipapasImg.src = "img/7.png";
+    salchipapasImg.src = "https://i.imgur.com/zrsfc3T.png";
   } else if (totalSalchipapas >= 100000 && totalSalchipapas < 500000) {
-    salchipapasImg.src = "img/8.png";
+    salchipapasImg.src = "https://i.imgur.com/fh8sN0j.png";
   } else if (totalSalchipapas >= 500000 && totalSalchipapas < 1000000) {
-    salchipapasImg.src = "img/9.png";
+    salchipapasImg.src = "https://i.imgur.com/6Cyogc1.png";
   } else if (totalSalchipapas >= 1000000 && totalSalchipapas < 5000000) {
-    salchipapasImg.src = "img/10.png";
+    salchipapasImg.src = "https://i.imgur.com/T2aacYv.png";
   } else if (totalSalchipapas >= 5000000 && totalSalchipapas < 10000000) {
-    salchipapasImg.src = "img/11.png";
+    salchipapasImg.src = "https://i.imgur.com/Z4wgM6Z.png";
   } else if (totalSalchipapas >= 10000000 && totalSalchipapas < 50000000) {
-    salchipapasImg.src = "img/12.png";
+    salchipapasImg.src = "https://i.imgur.com/AYNpy8J.png";
   } else if (totalSalchipapas >= 50000000 && totalSalchipapas < 100000000) {
-    salchipapasImg.src = "img/13.png";
+    salchipapasImg.src = "https://i.imgur.com/nqMFw9B.png";
   } else if (totalSalchipapas >= 100000000) {
-    salchipapasImg.src = "img/14.png";
+    salchipapasImg.src = "https://i.imgur.com/OEExHnJ.png";
   }
 }
 
@@ -281,6 +282,7 @@ function updateUI() {
   document.getElementById("salchipapas-per-second").textContent = `${salchipapasPerSecond} salchipapas por segundo`;
   document.getElementById("total-salchipapas").textContent = `${totalSalchipapas} salchipapas vendidas a lo largo de la historia`;
   updateStatusMessage();
+  
   updateImage();
   verificarDesbloqueos();
 }

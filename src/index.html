@@ -9,7 +9,7 @@
 </head>
 <body>
   <audio id="background-music" autoplay loop>
-    <source src="sounds/BG_Music57.mp3" type="audio/mp3">
+    <source src="sounds/Snack-time.mp3" type="audio/mp3">
   </audio>
   
   <section id="splash">
@@ -77,15 +77,14 @@
       <h2 class="salchipapas-count" id="salchipapas-count">0 salchipapas</h2>
       <p class="salchipapas-per-second" id="salchipapas-per-second">0 salchipapas por segundo</p>
   
-      <img id="salchipapas-img" src="img/0.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
+      <img id="salchipapas-img" src="./img/0.png" alt="Salchipapas" class="salchipapas-img" onclick="generateSalchipapas()">
       <audio id="cruchaudio" src="./sounds/cruch-sound.wav" preload="auto"></audio>
 
       <p class="total-salchipapas" id="total-salchipapas">0 salchipapas vendidas a lo largo de la historia</p>
+      <br><br><br><br>
   
-      <h3 class="upgrades-title">Mejoras</h3>
-      <div class="upgrades" id="upgrades-container">No tienes ninguna mejora aún</div>
-  
-      <p class="shop-link" id="btn_tienda">Conseguir más ➜</p>
+      <p class="shop-link" id="btn_tienda">Conseguir mejoras ➜</p>
+      <br><br>
       <button class="scoreboard-button" id="btn_puntuacion">Tablero de puntajes</button>
     </div>
     <p class="credits-link" id="btn_creditos">Sobre la app</p>
@@ -219,6 +218,6 @@
       </div>
 
   </section>
-<script type="module" src="js/main.js"></script>  
+<script type="module" src="js/main.js" defer></script>  
 </body>
 </html>
