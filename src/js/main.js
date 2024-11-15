@@ -107,6 +107,7 @@ function init() {
     btns["btn_volver2"] = document.getElementById("btn_volver2");
     btns["btn_volver3"] = document.getElementById("btn_volver3");
     btns["btn_volver4"] = document.getElementById("btn_volver4");
+    btns["btn_volver5"] = document.getElementById("btn_volver5");
     btns["btn_continuar"] = document.getElementById("btn_continuar");
 
     //botones de las mejoras
@@ -145,8 +146,9 @@ function asignarEventosMenu() {
     btns["btn_volver2"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver3"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_volver4"].addEventListener("click", () => cargarSeccion("juego"));
+    btns["btn_volver5"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_continuar"].addEventListener("click", validarNombre);
-    // btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
+    btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
     btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tutorial2"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tutorial3"].addEventListener("click", () => cargarSeccion("tutorial"));
@@ -578,3 +580,40 @@ function comprarMirella(){
 function guardarMejora(nombre, cantidad) {
   localStorage.setItem(nombre, cantidad);
 }
+
+//FUNCIONES PARA LA CONFIGURACIÓN
+document.getElementById("btn_editar_nombre").addEventListener("click", () => {
+  const inputNombre = document.getElementById("nombre_restaurante_input");
+  inputNombre.disabled = !inputNombre.disabled;
+  inputNombre.focus();
+});
+
+document.getElementById("btn_guardar_nombre").addEventListener("click", () => {
+  const inputNombre = document.getElementById("nombre_restaurante_input");
+  const nuevoNombre = inputNombre.value;
+  if (nuevoNombre) {
+    localStorage.setItem("nombre_salch", nuevoNombre);
+    nombre_salch = nuevoNombre;
+    alert("Nombre del restaurante actualizado");
+  }
+});
+
+document.getElementById("volumen_juego").addEventListener("input", (e) => {
+  const volumen = e.target.value / 100;
+  const audio = document.getElementById("background-music");
+  audio.volume = volumen;
+});
+
+document.getElementById("btn_borrar_datos").addEventListener("click", () => {
+  document.getElementById("confirmacion_borrar").classList.remove("ocultar");
+});
+
+document.getElementById("confirmar_borrar").addEventListener("click", () => {
+  localStorage.clear();
+  alert("Todos los datos han sido borrados");
+  cargarSeccion("registro");
+});
+
+document.getElementById("cancelar_borrar").addEventListener("click", () => {
+  document.getElementById("confirmacion_borrar").classList.add("ocultar");
+});

@@ -48,13 +48,13 @@
     <div class="tutorial-content">
       <div class="tutorial-box">
         <p class="tutorial-text">
-          ¡Bienvenido a Mandingas Salchipaperia! En este juego, tu objetivo es crear la mayor cantidad de salchipapas posibles y construir un imperio de producción.
+          ¡Bienvenido a <b>Mandingas Salchipaperia</b>! En este juego, tu objetivo es crear la mayor cantidad de salchipapas posibles y construir un imperio de producción.
           <br>
-          1)Haz clic en la salchipapa para empezar a vender salchipapas.
+          <b>1)</b> Haz clic en la salchipapa para empezar a vender salchipapas.
           <br>
-          2)Al alcanzar cierta cantidad de salchipapas, puedes contratar trabajadores y comprar maquinaria que producirán salchipapas automáticamente.
+          <b>2)</b> Al alcanzar cierta cantidad de salchipapas, puedes contratar trabajadores y comprar maquinaria que producirán salchipapas automáticamente.
           <br>
-          3)Invierte tus salchipapas en mejoras para aumentar la producción por clic y acelerar el trabajo de tus trabajadores y máquinas.
+          <b>3)</b> Invierte tus salchipapas en mejoras para aumentar la producción por clic y acelerar el trabajo de tus trabajadores y máquinas.
           <br>
           Consejo: Optimiza tu estrategia. Contrata trabajadores y compra mejoras según lo que más te convenga en cada momento para maximizar la producción.
         </p>
@@ -149,8 +149,35 @@
   </section>
 
   <section id="configuracion" class="ocultar">
-
+    <nav class="navbar">
+      <img src="img/logo.png" alt="Logo" class="nav-icon">
+      <img src="img/volver-icono.png" alt="Volver" class="nav-icon" id="btn_volver5">
+      <img src="img/options-icon.png" alt="Configuración" class="nav-icon">
+    </nav>
+  
+    <div class="configuracion-content">
+      <h1 class="config-titulo">Configuración</h1>
+  
+      <label class="config-label">Nombre del restaurante</label>
+      <div class="nombre-restaurante">
+        <input type="text" id="nombre_restaurante_input" value="${nombre_salch}" disabled>
+        <img src="img/editar.png" alt="Editar" class="icono-editar" id="btn_editar_nombre">
+      </div>
+  
+      <button class="guardar-nombre-btn" id="btn_guardar_nombre">Guardar</button>
+  
+      <label class="config-label">Volumen del juego</label>
+      <input type="range" id="volumen_juego" class="slider-volumen" min="0" max="100" value="50">
+  
+      <button class="borrar-datos-btn" id="btn_borrar_datos">Borrar todos los datos</button>
+      <div class="confirmacion-borrar ocultar" id="confirmacion_borrar">
+        <p>¿Estás seguro de que deseas borrar todos tus datos?</p>
+        <button class="confirmacion-btn" id="confirmar_borrar">Sí</button>
+        <button class="confirmacion-btn" id="cancelar_borrar">No</button>
+      </div>
+    </div>
   </section>
+  
 
   <section id="creditos" class="ocultar">
     <nav class="navbar">

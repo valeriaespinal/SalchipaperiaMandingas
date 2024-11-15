@@ -1,0 +1,119 @@
+#configuracion {
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    .navbar {
+        background-color: $color-sunglow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vh;
+
+        .nav-icon {
+            height: 3.2vh;
+            cursor: pointer;
+        }
+    }
+
+    .config-titulo {
+        font-family: 'Lilita One', sans-serif;
+        color: $color-poppy;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 2vh;
+    }
+
+    .config-label {
+        font-family: 'Josefin Sans', sans-serif;
+        color: $color-teal;
+        font-size: 1.2rem;
+        text-align: left;
+        margin-left: 5vw;
+        margin-top: 3vh;
+    }
+
+    .nombre-restaurante {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1vh;
+
+        input[type="text"] {
+            font-family: 'Josefin Sans', sans-serif;
+            color: $color-teal;
+            font-size: 1rem;
+            border: 1px solid black;
+            padding: 0.5rem;
+            width: 70%;
+            text-align: center;
+        }
+
+        .icono-editar {
+            margin-left: 0.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .guardar-nombre-btn {
+        font-family: 'Lilita One', sans-serif;
+        color: white;
+        background: linear-gradient(to bottom, #FFD23F, #CD3A35);
+        border-radius: 8px;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 2vh auto;
+        text-align: center;
+    }
+
+    .slider-volumen {
+        display: block;
+        margin: 1vh auto;
+        width: 70%;
+        accent-color: $color-poppy;
+    }
+
+    .borrar-datos-btn {
+        font-family: 'Lilita One', sans-serif;
+        color: white;
+        background: linear-gradient(to bottom, $color-poppy, $color-black-olive);
+        border-radius: 8px;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 4vh auto 2vh;
+        text-align: center;
+    }
+
+    .confirmacion-borrar {
+        background-color: $color-sunglow;
+        color: black;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1rem;
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 2vh auto;
+        width: 80%;
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .confirmacion-btn {
+            font-family: 'Lilita One', sans-serif;
+            color: white;
+            background: linear-gradient(to bottom, $color-poppy, $color-black-olive);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            margin: 0 1rem;
+        }
+    }
+}
