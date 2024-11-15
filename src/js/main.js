@@ -5,8 +5,8 @@ let refs = [];
 let btns = [];
 let nombre_salch = localStorage.getItem("nombre_salch") || '';
 let totalSalchipapas = parseInt(localStorage.getItem("totalSalchipapas")) || 0;
-let currentSalchipapas;
-let salchipapasPerSecond;
+let currentSalchipapas = 0;
+let salchipapasPerSecond = 0;
 
 function cargarMejoras(){
   cant_granja_de_papas = parseInt(localStorage.getItem("papas")) || 0;
