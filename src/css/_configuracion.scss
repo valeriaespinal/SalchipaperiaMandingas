@@ -20,7 +20,7 @@
     .config-titulo {
         font-family: 'Lilita One', sans-serif;
         color: $color-poppy;
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         text-align: center;
         margin-top: 2vh;
     }
@@ -28,8 +28,9 @@
     .config-label {
         font-family: 'Josefin Sans', sans-serif;
         color: $color-teal;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         text-align: left;
+        font-weight: bold;
         margin-left: 5vw;
         margin-top: 3vh;
     }
@@ -43,7 +44,7 @@
         input[type="text"] {
             font-family: 'Josefin Sans', sans-serif;
             color: $color-teal;
-            font-size: 1rem;
+            font-size: 1.3rem;
             border: 1px solid black;
             padding: 0.5rem;
             width: 70%;
@@ -52,7 +53,7 @@
 
         .icono-editar {
             margin-left: 0.5rem;
-            height: 1.5rem;
+            height: 2.1rem;
             cursor: pointer;
         }
     }
@@ -62,12 +63,14 @@
         color: white;
         background: linear-gradient(to bottom, #FFD23F, #CD3A35);
         border-radius: 8px;
-        padding: 0.8rem 1.2rem;
+        padding: 0.2rem 1.2rem;
         border: none;
+        font-size: 1.8rem;
         cursor: pointer;
         display: block;
         margin: 2vh auto;
         text-align: center;
+        margin-bottom: 13vh;
     }
 
     .slider-volumen {
@@ -75,6 +78,7 @@
         margin: 1vh auto;
         width: 70%;
         accent-color: $color-poppy;
+        margin-bottom: 13vh;
     }
 
     .borrar-datos-btn {
@@ -84,6 +88,7 @@
         border-radius: 8px;
         padding: 0.8rem 1.2rem;
         border: none;
+        font-size: 1.4rem;
         cursor: pointer;
         display: block;
         margin: 4vh auto 2vh;

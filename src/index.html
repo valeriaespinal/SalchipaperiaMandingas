@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mandingas Salchipaperia</title>
-  <script type="module" src="js/main.js"></script>
     <link rel="stylesheet" href="css/vendor/animate.min.css">
   <link rel="stylesheet" href="css/main.scss">
 </head>
@@ -72,7 +71,7 @@
     </nav>
   
     <div class="content">
-      <h1 class="restaurant-name" id="restaurant-name">Mandingas Salchipaperia</h1>
+      <h1 class="restaurant-name" id="rest-name">Mandingas Salchipaperia</h1>
       <p class="status-message" id="status-message">Aún nadie quiere probar tus salchipapas</p>
       
       <h2 class="salchipapas-count" id="salchipapas-count">0 salchipapas</h2>
@@ -145,7 +144,7 @@
     <p id="txt_tablap">Tablero de puntajes</p>
 
     <text>Las salchipaperias con mas salchipapas vendidas</text>
-
+    <div id="top-salchipaperias-table"></div>
   </section>
 
   <section id="configuracion" class="ocultar">
@@ -160,7 +159,7 @@
   
       <label class="config-label">Nombre del restaurante</label>
       <div class="nombre-restaurante">
-        <input type="text" id="nombre_restaurante_input" value="${nombre_salch}" disabled>
+        <input type="text" id="nombre_restaurante_input" disabled>
         <img src="img/editar.png" alt="Editar" class="icono-editar" id="btn_editar_nombre">
       </div>
   
@@ -220,7 +219,6 @@
       </div>
 
   </section>
-
-  
+<script type="module" src="js/main.js"></script>  
 </body>
 </html>

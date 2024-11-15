@@ -5,8 +5,8 @@ let refs = [];
 let btns = [];
 let nombre_salch = localStorage.getItem("nombre_salch") || '';
 let totalSalchipapas = parseInt(localStorage.getItem("totalSalchipapas")) || 0;
-let currentSalchipapas = 0;
-let salchipapasPerSecond = 0;
+let currentSalchipapas = parseInt(localStorage.getItem("currentSalchipapas")) || 0;
+let salchipapasPerSecond = parseInt(localStorage.getItem("salchipapasPerSecond")) || 0;
 
 function cargarMejoras(){
   cant_granja_de_papas = parseInt(localStorage.getItem("papas")) || 0;
@@ -126,6 +126,14 @@ function init() {
     btns["fabricaTejidosBtn"] = document.getElementById("fabricaTejidosBtn");
     btns["mirellaBtn"] = document.getElementById("mirellaBtn");
     
+    const nombreRestauranteInput = document.getElementById("nombre_restaurante_input");
+
+ 
+    if (nombre_salch) {
+      document.getElementById("rest-name").textContent = nombre_salch;
+      nombreRestauranteInput.value = nombre_salch;
+    }
+
     setTimeout(() => {
       if (nombre_salch) {
         cargarSeccion("juego");
@@ -133,7 +141,7 @@ function init() {
         cargarSeccion("registro");
       }
     }, 2000);
-
+    updateImage();
     asignarEventosMenu();
     verificarDesbloqueos();
     cargarMejoras();
@@ -193,7 +201,14 @@ function cargarSeccion(seccion) {
   ocultar();
   refs[seccion].classList.remove("ocultar");
   refs[seccion].classList.add("animate__animated", "animate__fadeIn");
-
+  if (seccion === "juego") {
+    const restaurantNameElement = document.getElementById("rest-name");
+    restaurantNameElement.textContent = nombre_salch || "Mandingas Salchipaperia";
+  }
+  if (seccion === "configuracion") {
+    const restaurantNameElement = document.getElementById("nombre_restaurante_input");
+    restaurantNameElement.textContent = nombre_salch;
+  }
   if (seccion == "puntuacion"){
     getTopSalchipaperias();
     saveSalchipaperiaData(nombre_salch, totalSalchipapas);
@@ -224,11 +239,49 @@ window.generateSalchipapas = function() {
   saveSalchipaperiaData(nombre_salch, totalSalchipapas);
 }
 
+function updateImage() {
+  const salchipapasImg = document.getElementById("salchipapas-img");
+  
+  // Cambiar la imagen según el total de salchipapas
+  if (totalSalchipapas === 0) {
+    salchipapasImg.src = "img/0.png";
+  } else if (totalSalchipapas === 1) {
+    salchipapasImg.src = "img/1.png";
+  } else if (totalSalchipapas >= 100 && totalSalchipapas < 500) {
+    salchipapasImg.src = "img/2.png";
+  } else if (totalSalchipapas >= 500 && totalSalchipapas < 1000) {
+    salchipapasImg.src = "img/3.png";
+  } else if (totalSalchipapas >= 1000 && totalSalchipapas < 5000) {
+    salchipapasImg.src = "img/4.png";
+  } else if (totalSalchipapas >= 5000 && totalSalchipapas < 10000) {
+    salchipapasImg.src = "img/5.png";
+  } else if (totalSalchipapas >= 10000 && totalSalchipapas < 50000) {
+    salchipapasImg.src = "img/6.png";
+  } else if (totalSalchipapas >= 50000 && totalSalchipapas < 100000) {
+    salchipapasImg.src = "img/7.png";
+  } else if (totalSalchipapas >= 100000 && totalSalchipapas < 500000) {
+    salchipapasImg.src = "img/8.png";
+  } else if (totalSalchipapas >= 500000 && totalSalchipapas < 1000000) {
+    salchipapasImg.src = "img/9.png";
+  } else if (totalSalchipapas >= 1000000 && totalSalchipapas < 5000000) {
+    salchipapasImg.src = "img/10.png";
+  } else if (totalSalchipapas >= 5000000 && totalSalchipapas < 10000000) {
+    salchipapasImg.src = "img/11.png";
+  } else if (totalSalchipapas >= 10000000 && totalSalchipapas < 50000000) {
+    salchipapasImg.src = "img/12.png";
+  } else if (totalSalchipapas >= 50000000 && totalSalchipapas < 100000000) {
+    salchipapasImg.src = "img/13.png";
+  } else if (totalSalchipapas >= 100000000) {
+    salchipapasImg.src = "img/14.png";
+  }
+}
+
 function updateUI() {
   document.getElementById("salchipapas-count").textContent = `${currentSalchipapas} salchipapas`;
   document.getElementById("salchipapas-per-second").textContent = `${salchipapasPerSecond} salchipapas por segundo`;
   document.getElementById("total-salchipapas").textContent = `${totalSalchipapas} salchipapas vendidas a lo largo de la historia`;
   updateStatusMessage();
+  updateImage();
   verificarDesbloqueos();
 }
 
@@ -257,6 +310,8 @@ function validarNombre(){
 
 function saveGameData() {
   localStorage.setItem("totalSalchipapas", totalSalchipapas.toString());
+  localStorage.setItem("currentSalchipapas", currentSalchipapas.toString());
+  localStorage.setItem("salchipapasPerSecond", salchipapasPerSecond.toString());
 }
 
 async function saveSalchipaperiaData(nombre, cantidadTotal) {
@@ -405,6 +460,7 @@ function updateProduccionPorSegundo(){
   (cant_laboratorio_de_natilla * prod_laboratorio_de_natilla) +
   (cant_fabrica_de_tejidos_extraños * prod_fabrica_de_tejidos_extraños) +
   (cant_mirella_dimensional * prod_mirella_dimensional);
+  saveGameData();
   updateUI();
 }
 
@@ -609,8 +665,10 @@ document.getElementById("btn_borrar_datos").addEventListener("click", () => {
 });
 
 document.getElementById("confirmar_borrar").addEventListener("click", () => {
+  currentSalchipapas = 0;
+  salchipapasPerSecond = 0;
+  totalSalchipapas = 0;
   localStorage.clear();
-  alert("Todos los datos han sido borrados");
   cargarSeccion("registro");
 });
 
