@@ -92,7 +92,9 @@ function init() {
     btns["btn_juego"] = document.getElementById("btn_juego");
     btns["btn_registro"] = document.getElementById("btn_registro");
     btns["btn_configuracion"] = document.getElementById("btn_configuracion");
-
+    btns["btn_configuracion2"] = document.getElementById("btn_configuracion2");
+    btns["btn_configuracion3"] = document.getElementById("btn_configuracion3");
+    btns["btn_configuracion4"] = document.getElementById("btn_configuracion4");
     btns["btn_tutorial"] = document.getElementById("btn_tutorial");
     btns["btn_tutorial2"] = document.getElementById("btn_tutorial2");
     btns["btn_tutorial3"] = document.getElementById("btn_tutorial3");
@@ -156,6 +158,10 @@ function asignarEventosMenu() {
     btns["btn_volver5"].addEventListener("click", () => cargarSeccion("juego"));
     btns["btn_continuar"].addEventListener("click", validarNombre);
     btns["btn_configuracion"].addEventListener("click", () => cargarSeccion("configuracion"));
+    btns["btn_configuracion2"].addEventListener("click", () => cargarSeccion("configuracion"));
+    btns["btn_configuracion3"].addEventListener("click", () => cargarSeccion("configuracion"));
+    btns["btn_configuracion4"].addEventListener("click", () => cargarSeccion("configuracion"));
+    
     btns["btn_tutorial"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tutorial2"].addEventListener("click", () => cargarSeccion("tutorial"));
     btns["btn_tutorial3"].addEventListener("click", () => cargarSeccion("tutorial"));
